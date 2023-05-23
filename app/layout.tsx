@@ -1,7 +1,9 @@
-import './globals.css'
+import { MainNav } from '@/components/main-nav'
+import { Toaster } from '@/components/toaster'
+import '@/styles/globals.css'
 import { Source_Sans_Pro } from 'next/font/google'
 
-const inter = Source_Sans_Pro({ weight: ['400', '700'], subsets: ['vietnamese'] })
+const sourceSans = Source_Sans_Pro({ weight: ['400', '700'], subsets: ['vietnamese'] })
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +13,11 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <body className={sourceSans.className}>
+        <MainNav />
+        {children}
+        <Toaster />
+      </body>
     </html>
   )
 }
