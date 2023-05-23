@@ -8,6 +8,7 @@ export const getRandomSafeSpot = () =>
     { x: 2, y: 6 },
     { x: 2, y: 8 },
     { x: 2, y: 9 },
+    { x: 4, y: 7 },
     { x: 4, y: 8 },
     { x: 5, y: 5 },
     { x: 5, y: 8 },

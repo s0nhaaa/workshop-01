@@ -16,7 +16,9 @@ module.exports = {
         'character-red-left': '-16px',
         'character-orange-left': '-32px',
         'character-yellow-left': '-48px',
-        'top-4': 'center top 1rem',
+      },
+      animation: {
+        'coin-float': {},
       },
     },
   },

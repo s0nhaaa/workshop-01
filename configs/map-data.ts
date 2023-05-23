@@ -4,18 +4,11 @@ export const MAP_DATA = {
   minY: 4,
   maxY: 12,
   blockedSpaces: <{ [key: string]: boolean }>{
-    '7x4': true,
     '1x11': true,
     '12x10': true,
-    '4x7': true,
     '5x7': true,
-    '6x7': true,
-    '8x6': true,
     '9x6': true,
-    '10x6': true,
-    '7x9': true,
     '8x9': true,
-    '9x9': true,
   },
 }
 
