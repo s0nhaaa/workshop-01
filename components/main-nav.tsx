@@ -10,9 +10,6 @@ export function MainNav({ className, ...props }: React.HTMLAttributes<HTMLElemen
         <div className='flex items-center justify-center gap-3'></div>
         <div className=' flex items-center gap-2'>
           <Button className='flex gap-2'>
-            <Shirt size={16} />
-          </Button>
-          <Button className='flex gap-2'>
             <CircleDollarSign size={16} /> 3 SOL
           </Button>
           <Button>Connect Wallet</Button>

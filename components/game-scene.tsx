@@ -1,6 +1,6 @@
 'use client'
 
-import { useToast } from '@/components/ui/use-toast'
+import { PlayerColor } from '@/configs/player-color'
 import { getKeyString } from '@/helpers/get-key-string'
 import { getRandomSafeSpot } from '@/helpers/get-random-safe-spot'
 import { isOnBank } from '@/helpers/is-on-bank'
@@ -15,7 +15,6 @@ import Coins from './coins'
 import PizzaAlert from './pizza-alert'
 import PizzaMenu from './pizza-menu'
 import Player from './player'
-import SkinModal from './skin-modal'
 
 export function GameScene() {
   const [coins, setCoins] = useState<Record<string, { x: number; y: number }>>({
@@ -35,7 +34,6 @@ export function GameScene() {
   const [onBank, setOnBank] = useState(false)
   const [onPizza, setOnPizza] = useState(false)
   const [isOpenPizzaMenu, setIsOpenPizzaMenu] = useState(false)
-  const [isOpenSkinModal, setIsOpenSkinModal] = useState(false)
 
   useKeyPressEvent('ArrowUp', () => handleArrowPress(0, -1))
   useKeyPressEvent('ArrowDown', () => handleArrowPress(0, 1))
@@ -43,6 +41,17 @@ export function GameScene() {
   useKeyPressEvent('ArrowRight', () => handleArrowPress(1, 0))
 
   useKeyPressEvent('a', () => onPizza && setIsOpenPizzaMenu(true))
+
+  useKeyPressEvent('1', () => changeSkinColor('blue'))
+  useKeyPressEvent('2', () => changeSkinColor('green'))
+  useKeyPressEvent('3', () => changeSkinColor('orange'))
+  useKeyPressEvent('4', () => changeSkinColor('purple'))
+  useKeyPressEvent('5', () => changeSkinColor('red'))
+  useKeyPressEvent('6', () => changeSkinColor('yellow'))
+
+  const changeSkinColor = (color: PlayerColor) => {
+    setPlayer({ ...player, color })
+  }
 
   useEffect(() => {
     const placeCoin = () => {
@@ -108,8 +117,6 @@ export function GameScene() {
         <PizzaAlert onPizza={onPizza} />
 
         <PizzaMenu isOpen={isOpenPizzaMenu} setIsOpen={setIsOpenPizzaMenu} />
-
-        <SkinModal isOpen={isOpenSkinModal} setIsOpen={setIsOpenSkinModal} />
       </div>
     </>
   )
