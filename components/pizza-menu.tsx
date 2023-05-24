@@ -1,10 +1,6 @@
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { PIZZA_DATA } from '@/configs/pizza-data'
 import { ToastAction } from '@radix-ui/react-toast'
-import { getAssociatedTokenAddressSync, transfer } from '@solana/spl-token'
-import { useConnection } from '@solana/wallet-adapter-react'
-import { Keypair, PublicKey } from '@solana/web3.js'
-import { decode } from 'bs58'
 import Link from 'next/link'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { PizzaCard } from './pizza-card'
@@ -18,27 +14,29 @@ interface PizzaMenuProps {
 }
 
 export default function PizzaMenu({ isOpen, setIsOpen }: PizzaMenuProps) {
-  const { connection } = useConnection()
-  const secret = '3HFAkDhHgYJGT173pcVkLRgzvTjNTK6baTQ7ociS4Aq8byFEJv1y32m4fugWLUKGXuVJENyYxEPXPo718PQMbfVh'
-  const fromWallet = Keypair.fromSecretKey(decode(secret))
-  const toWallet = new PublicKey('Hb2HDX6tnRfw5j442npy58Z2GBzJA58Nz7ipouWGT63p')
-  const mint = new PublicKey('3Mq7ukS7xygbtGtvNwavKuXHZ1W6QqwdwDsT16APeW8i')
-  const toTokenAccount = getAssociatedTokenAddressSync(mint, toWallet)
-  const fromTokenAccount = getAssociatedTokenAddressSync(mint, fromWallet.publicKey)
   const { toast } = useToast()
   const [isPaying, setIsPaying] = useState(false)
+
+  // Get connection using useConnection() hook
+
+  // Get the secret key from .env
+
+  // Generate keypair from secret key using Keypair.fromSecretKey(decode(secret))
+
+  // Define the receiver publick key
+
+  // Define the mint address
+
+  // Get or create ATA for receive account
+
+  // Get ATA of from account
 
   const pay = async (amount: number) => {
     setIsPaying(true)
     try {
-      const tx = await transfer(
-        connection,
-        fromWallet,
-        fromTokenAccount,
-        toTokenAccount,
-        fromWallet,
-        amount * Math.pow(10, 9),
-      )
+      // Write the transfer function
+      const tx = '2MrC3ZYTqkYxFHEJz1fEgtfS9WF59xKqjShWBzz379ZQaasaHGSG12d52TDwV4qQvp1cpKwTzQx8wxibZmyLN6uU'
+
       toast({
         title: 'Transaction Success!🎉',
         description: new Date().toString(),

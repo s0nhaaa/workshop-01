@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { COIN_SYMBOL } from '@/configs/coin-symbol'
+import { TOKEN_SYMBOL } from '@/configs/token-symbol'
 import { cn } from '@/lib/utils'
 import { Pizza } from '@/types/pizza'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
@@ -27,7 +27,7 @@ export function PizzaCard({ isPaying, onPay, pizza, className, ...props }: Pizza
       </CardContent>
       <CardFooter>
         <Button disabled={isPaying} onClick={() => onPay(pizza.price)} className='w-full'>
-          {isPaying && <Loader2 className='mr-2 h-4 w-4 animate-spin' />} Buy with ${pizza.price} {COIN_SYMBOL}
+          {isPaying && <Loader2 className='mr-2 h-4 w-4 animate-spin' />} Buy with ${pizza.price} {TOKEN_SYMBOL}
         </Button>
       </CardFooter>
     </Card>

@@ -1,9 +1,8 @@
 'use client'
 
-import { CircleDollarSign, Shirt } from 'lucide-react'
+import { CircleDollarSign } from 'lucide-react'
 import { Button } from './ui/button'
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
-import { COIN_SYMBOL } from '@/configs/coin-symbol'
+import { TOKEN_SYMBOL } from '@/configs/token-symbol'
 
 export function MainNav({ className, ...props }: React.HTMLAttributes<HTMLElement>) {
   return (
@@ -12,10 +11,9 @@ export function MainNav({ className, ...props }: React.HTMLAttributes<HTMLElemen
         <div className='flex items-center justify-center gap-3'></div>
         <div className=' flex items-center gap-2'>
           <Button className='flex gap-2'>
-            <CircleDollarSign size={16} /> 3 {COIN_SYMBOL}
+            <CircleDollarSign size={16} /> 3 {TOKEN_SYMBOL}
           </Button>
-          {/* <Button>Connect Wallet</Button> */}
-          <WalletMultiButton />
+          <Button>Connect Wallet</Button>
         </div>
       </div>
     </div>
