@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { TOKEN_SYMBOL } from '@/configs/token-symbol'
 import { cn } from '@/lib/utils'
 import { Pizza } from '@/types/pizza'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
@@ -20,7 +21,9 @@ export function PizzaCard({ pizza, className, ...props }: CardProps) {
         </AspectRatio>
       </CardContent>
       <CardFooter>
-        <Button className='w-full'>Buy with ${pizza.price} SOL</Button>
+        <Button className='w-full'>
+          Buy with ${pizza.price} {TOKEN_SYMBOL}
+        </Button>
       </CardFooter>
     </Card>
   )

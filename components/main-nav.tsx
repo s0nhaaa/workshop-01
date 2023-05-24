@@ -2,6 +2,7 @@
 
 import { CircleDollarSign, Shirt } from 'lucide-react'
 import { Button } from './ui/button'
+import { TOKEN_SYMBOL } from '@/configs/token-symbol'
 
 export function MainNav({ className, ...props }: React.HTMLAttributes<HTMLElement>) {
   return (
@@ -10,7 +11,7 @@ export function MainNav({ className, ...props }: React.HTMLAttributes<HTMLElemen
         <div className='flex items-center justify-center gap-3'></div>
         <div className=' flex items-center gap-2'>
           <Button className='flex gap-2'>
-            <CircleDollarSign size={16} /> 3 SOL
+            <CircleDollarSign size={16} /> 3 {TOKEN_SYMBOL}
           </Button>
           <Button>Connect Wallet</Button>
         </div>
