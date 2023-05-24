@@ -1,13 +1,19 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { COIN_SYMBOL } from '@/configs/coin-symbol'
 import { cn } from '@/lib/utils'
 import { Pizza } from '@/types/pizza'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
+import { Loader2 } from 'lucide-react'
 import Image from 'next/image'
 
-type CardProps = React.ComponentProps<typeof Card> & { pizza: Pizza }
+type PizzaCardProps = React.ComponentProps<typeof Card> & {
+  pizza: Pizza
+  onPay: (amount: number) => void
+  isPaying: boolean
+}
 
-export function PizzaCard({ pizza, className, ...props }: CardProps) {
+export function PizzaCard({ isPaying, onPay, pizza, className, ...props }: PizzaCardProps) {
   return (
     <Card className={cn('w-full my-4', className)} {...props}>
       <CardHeader>
@@ -20,7 +26,9 @@ export function PizzaCard({ pizza, className, ...props }: CardProps) {
         </AspectRatio>
       </CardContent>
       <CardFooter>
-        <Button className='w-full'>Buy with ${pizza.price} SOL</Button>
+        <Button disabled={isPaying} onClick={() => onPay(pizza.price)} className='w-full'>
+          {isPaying && <Loader2 className='mr-2 h-4 w-4 animate-spin' />} Buy with ${pizza.price} {COIN_SYMBOL}
+        </Button>
       </CardFooter>
     </Card>
   )
